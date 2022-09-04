@@ -11,7 +11,7 @@ d) operations +, -, *, / can only be used once
 e) calculation of the result follow the order of operation (no priority of * or / and no brackets allowed)
 
 Example:
-target value:31
+target value:65
 
-dice values 1, 3, 5
-difference 1: 50 + 10 - 30 = 30
+dice values 1, 2, 3
+difference 0: 100 + 30 = 130 and 130/2 = 65
