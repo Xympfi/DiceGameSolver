@@ -20,10 +20,9 @@ with following rules
 6. all results, also the interim results, need to be whole numbers and greater or equal to zero.
 
 Playing with more people: 
-Each person tries to find as fast as possible a solution. 
-The fist person announcing the difference to the target value they found locks in its such difference.
-The other have now time to find a smaller difference.
-The round ends if all players come to the conclusion that there is no better solution.
+Each person tries to find a solution as fast as possible. 
+The fist person announcing the difference to the target value they found locks in such difference and cannot change it anymore within this round.
+The other have now time to find a smaller difference. By announcing a smaller difference the corresponding player locks again in its difference value for this round. The round ends if all players come to the conclusion that there is no better solution, solution with smaller difference to the target value.
 
 Example:
 
@@ -31,12 +30,12 @@ target value:65
 
 dice values 1, 2, 3
 
-Minimum difference 0 can be found e.g. by calculating 1\*100 + 3\*10 = 130 and 130/2 = 65
 
 Playing with several players:
 Maybe the first player announces a difference of 2 (without disclosing the solution!), because they found e.g. the solution 2*10 + 1 = 21 and 
 21 *3 = 63 which is 2 lower than 65. 
-Now the other player have time to think of better solutions, e.g. the difference 0 with the solution above.
+Now the other player have time to think of better solutions, e.g. the difference 0 with the following solution.
+calculating 1\*100 + 3\*10 = 130 and 130/2 = 65
 
 The player that comes closest to 65 first wins the round.
 
