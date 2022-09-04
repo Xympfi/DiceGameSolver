@@ -1,3 +1,5 @@
+# This is a simple solver for our famouse dice game with three dice and finding the closest solution
+# using simple operations like + - * /
 from csv import DictReader
 import random
 from itertools import permutations
