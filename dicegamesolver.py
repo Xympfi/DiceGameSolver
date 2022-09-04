@@ -1,42 +1,13 @@
 # This is a simple solver for our famouse dice game with three dice and finding the closest solution
 # using simple operations like + - * /
 import random
-from itertools import permutations
+import dicelib
 # 
 operations =["+","-","*","/"]
 multiples = [1,1,1,10,10,10, 100, 100, 100,1000, 1000,1000,10000, 10000,10000]
 targets = range(1,120)
 dice_values =[1,2,3,4,5,6]
 
-def operation(a, operator, b):
-    # calulates a operator b depending on the value of operator
-    if operator == "+":
-        return a+b
-    elif operator == "*":
-        return a * b
-    elif operator == "/":
-        return a/b
-    elif operator =="-":
-        return a - b
-
-def calculate_all_solutions(dice_combinations, operation_combinations, multiple_combinations):
-    # calculates all allowed solutions 
-    results = []
-    i = 0
-    for dc in dice_combinations:
-        for op in operation_combinations:
-            for mlt in multiple_combinations:
-                if i % 100 == 0:
-                    print("-", end="")
-    #calulate result
-                first_part = operation(dc[0]*mlt[0],op[0],dc[1]*mlt[1])
-                if first_part >= 0: # make sure that not negative partial results occur 
-                    result =  operation(first_part , op[1],dc[2]*mlt[2])
-    #check validity of result if result is a whole number
-                    if result >= 0. and  result - int(result) < 0.000001: # make sure that result is positive and whole number
-                        results.append([dc[0], mlt[0], op[0], dc[1],mlt[1], op[1],dc[2],mlt[2], int(result), int(abs(target - result))])
-                i=i+1
-    return results
 def print_dice_value(value):
     #generate a simple output of dice values
     if value == 1:
@@ -80,8 +51,8 @@ while answer != "x":
             answer = input("Choose new target value [press n enter]")
         a = random.choice(dice_values)
         b = random.choice(dice_values)
-        print("---")
         c = random.choice(dice_values)
+        print("---")
         print_dice_value(a)
         print("---")
         print_dice_value(b)
@@ -91,26 +62,9 @@ while answer != "x":
 
     dice = [a,b,c]
 
-
-#generate all possible combinations of dice order, operator order and multiple
-    dc_comb = list(permutations(dice, 3))
-# remove duplicates
-    dice_combinations = []
-    for dc in dc_comb:
-        if dc not in dice_combinations:
-            dice_combinations.append(dc)
-
-    operation_combinations = list(permutations(operations,2))
-    mlt_comb = list(permutations(multiples,3))
-#remove duplicates
-    multiple_combinations = []
-    for mlt in mlt_comb:
-        if mlt not in multiple_combinations:
-            multiple_combinations.append(mlt)
-
-    results = calculate_all_solutions(dice_combinations, operation_combinations, multiple_combinations)
-# sort result from smalles difference to largest^
-    results.sort(key=lambda row: (row[9]), reverse=False)
+    dice_combinations, operation_combinations, multiple_combinations = dicelib.generate_combinations(dice, operations, multiples)
+    results = dicelib.calculate_all_solutions(target, dice_combinations, operation_combinations, multiple_combinations)
+# sort result from smallest difference to largest
 # output 20 best results
     print()
     print("Number of combinations evaluated", len(results))
