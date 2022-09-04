@@ -25,4 +25,4 @@ target value:65
 
 dice values 1, 2, 3
 
-Minimum difference 0: 1*100 + 3*10 = 130 and 130/2 = 65
+Minimum difference 0: 1\*100 + 3\*10 = 130 and 130/2 = 65
