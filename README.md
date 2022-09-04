@@ -1,8 +1,10 @@
 # DiceGameSolver
 A simple python based script the evaluates all possible compinations of 3 dice values 2 operators (+, -, *, /) and multiples of 10
 in order to get to a target value as close as possible.
+
 The script also has a simple user interface providing a random target value between 0 and 120 and
 3 random dice values.
+
 You can also put in your own choices of target value and dice values.
 The script gives you the 15 combination the come closest to the target value
 
@@ -22,4 +24,5 @@ Example:
 target value:65
 
 dice values 1, 2, 3
+
 Minimum difference 0: 1*100 + 3*10 = 130 and 130/2 = 65
