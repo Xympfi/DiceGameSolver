@@ -115,7 +115,7 @@ while answer != "x":
     input("Want to see the the minimum distance found ? [press enter] ")
     print("Minimum distance found: ", results[0][9])
     input("Want to see the results ? [press enter] ")
-    for i in range(len(results[:20])):
+    for i in range(len(results[:15])):
         solution = results[i]
-        print(solution[9],":",solution[8],"=",solution[0],"*",solution[1], "", solution[2], "", solution[3], "*", solution[4], "", solution[5], "", solution[6], "*", solution[7])
+        print(solution[9],":",solution[8],"=",solution[0]*solution[1], "", solution[2], "", solution[3]*solution[4], "", solution[5], "", solution[6]*solution[7])
     answer = input("Exit [press x enter] Continue [press enter]")
