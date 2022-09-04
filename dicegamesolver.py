@@ -113,7 +113,7 @@ while answer != "x":
     results.sort(key=lambda row: (row[9]), reverse=False)
 # output 20 best results
     print()
-    print("Number of iterations", len(results))
+    print("Number of combinations evaluated", len(results))
     input("Want to see the the minimum distance found ? [press enter] ")
     print("Minimum distance found: ", results[0][9])
     input("Want to see the results ? [press enter] ")
