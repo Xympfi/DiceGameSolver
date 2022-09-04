@@ -1,15 +1,15 @@
 # This is a simple solver for our famouse dice game with three dice and finding the closest solution
 # using simple operations like + - * /
-from csv import DictReader
 import random
 from itertools import permutations
-#this is a
+# 
 operations =["+","-","*","/"]
 multiples = [1,1,1,10,10,10, 100, 100, 100,1000, 1000,1000,10000, 10000,10000]
 targets = range(1,120)
 dice_values =[1,2,3,4,5,6]
 
 def operation(a, operator, b):
+    # calulates a operator b depending on the value of operator
     if operator == "+":
         return a+b
     elif operator == "*":
@@ -20,6 +20,7 @@ def operation(a, operator, b):
         return a - b
 
 def calculate_all_solutions(dice_combinations, operation_combinations, multiple_combinations):
+    # calculates all allowed solutions 
     results = []
     i = 0
     for dc in dice_combinations:
@@ -37,6 +38,7 @@ def calculate_all_solutions(dice_combinations, operation_combinations, multiple_
                 i=i+1
     return results
 def print_dice_value(value):
+    #generate a simple output of dice values
     if value == 1:
         print("   ")
         print(" 0 ")
