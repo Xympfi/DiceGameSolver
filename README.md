@@ -3,7 +3,7 @@
 # Game rules
 Given a target value as a whole number and three dice:
 You try to get as close as possible to the target value by combining the three dice values with the operations +, -, *, /
-with following rules
+with following rulesa\n
 a) each dice can only be used once
 b) all dice have to be used
 c) you can multiply the value of a dice with any factor 10^n
