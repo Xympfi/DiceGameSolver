@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice game</title>
+</head>
+<body>
+    <label>
+    <button onclick="targetvalue()">
+        Target value
+    </button>
+    :<p id="targetvalue"></p>
+    </label>
+    <label>
+    <button onclick="throwdice()">
+        Throw dice
+    </button>
+    :<p id="throwdice"></p>
+    </label>
+    <label>
+    <button onclick="result()">
+        Result
+    </button>
+    :<p id="results"></p>
+    </label>
+</body>
+<script>
+    let gamedata = null;
+    function targetvalue(){ 
+        console.log('hello world');
+        let response ;
+        // Create an XMLHttpRequest object
+        const xhttp = new XMLHttpRequest();
+
+        // Define a callback function
+        xhttp.onload = function() {
+            gamedata = JSON.parse(this.responseText);
+            console.log(gamedata);
+            let value = gamedata['Target'];
+          let valueelement = document.getElementById('targetvalue');
+          valueelement.textContent = value;
+        }
+
+        // Send a request
+        xhttp.open("GET", "dicegame");
+        xhttp.send();
+        let dice = document.getElementById('throwdice');
+        let results = document.getElementById('results');
+        dice.innerHTML = '';
+        results.innerHTML = '';
+
+    }
+    function throwdice(){
+        let dice = document.getElementById('throwdice');
+        let die = gamedata['dice'];
+        dice.textContent = die[0] + ' ' + die[1] + ' ' + die[2];
+
+    }
+    function result(){
+        let results = document.getElementById('results');
+        results.innerHTML = '';
+        gamedata['Results'].forEach(element => {
+            results.innerHTML += element + '<br>';
+        });
+    }
+</script>
+</html>
