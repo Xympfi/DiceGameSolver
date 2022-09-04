@@ -6,7 +6,7 @@ The script also has a simple user interface providing a random target value betw
 3 random dice values.
 
 You can also put in your own choices of target value and dice values.
-The script gives you the 15 combination the come closest to the target value
+The script gives you the 15 combinations the come closest to the target value
 
 # Game rules
 Given a target value as a whole number and three dice:
@@ -19,10 +19,24 @@ with following rules
 5. calculation of the result follow the order of operation (no priority of * or / and no brackets allowed)
 6. all results, also the interim results, need to be whole numbers and greater or equal to zero.
 
+Playing with more people: 
+Each person tries to find as fast as possible a solution. 
+The fist person announcing the difference to the target value they found locks in its such difference.
+The other have now time to find a smaller difference.
+The round ends if all players come to the conclusion that there is no better solution.
+
 Example:
 
 target value:65
 
 dice values 1, 2, 3
 
-Minimum difference 0: 1\*100 + 3\*10 = 130 and 130/2 = 65
+Minimum difference 0 can be found e.g. by calculating 1\*100 + 3\*10 = 130 and 130/2 = 65
+
+Playing with several players:
+Maybe the first player announces a difference of 2 (without disclosing the solution!), because they found e.g. the solution 2*10 + 1 = 21 and 
+21 *3 = 63 which is 2 lower than 65. 
+Now the other player have time to think of better solutions, e.g. the difference 0 with the solution above.
+
+The player that comes closest to 65 first wins the round.
+
