@@ -39,7 +39,3 @@ async def read_root():
     for r in results:
         rslts.append(str(r[9])+":"+str(r[8])+"="+"("+str(r[0]*r[1])+r[2]+str(r[3]*r[4])+")"+r[5]+str(r[6]*r[7]))
     return {"Target": target, "dice": dice, "Results": rslts[0:15]} 
-
-#@app.get("/dice/1", response_class)
-#async def outdice1():
-#    return
