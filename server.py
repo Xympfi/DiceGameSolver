@@ -2,14 +2,15 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import JSONResponse, HTMLResponse
 import random
-#import json
 import dicelib
 
-#uvicorn web server needs to be running in local environment
-
+#  usage of fastapi see https://fastapi.tiangolo.com/
+#  uvicorn web server needs to be running in local environment
+#  dice faces from https://commons.wikimedia.org/wiki/Category:Dice_faces stored in static
 
 app = FastAPI()
-
+app.mount("/static", StaticFiles(directory="static"), name="static")
+#
 #app.mount("/", StaticFiles(directory="static",html = True), name="static")
 # return the contents of intex.htlm file in folder static when the https://host/ is called in a browser
 @app.get("/")
@@ -22,7 +23,7 @@ async def homepage():
 
 # return the target value, dice values and first 15 solutions in JSON format when the https://host/dicegame is called in a browser
 @app.get("/dicegame", response_class=JSONResponse)
-def read_root():
+async def read_root():
     operations =["+","-","*","/"]
     multiples = [1,1,1,10,10,10, 100, 100, 100,1000, 1000,1000,10000, 10000,10000]
     targets = range(1,120)
@@ -38,3 +39,7 @@ def read_root():
     for r in results:
         rslts.append(str(r[9])+":"+str(r[8])+"="+"("+str(r[0]*r[1])+r[2]+str(r[3]*r[4])+")"+r[5]+str(r[6]*r[7]))
     return {"Target": target, "dice": dice, "Results": rslts[0:15]} 
+
+#@app.get("/dice/1", response_class)
+#async def outdice1():
+#    return

@@ -17,7 +17,11 @@
     <button onclick="throwdice()">
         Throw dice
     </button>
-    :<p id="throwdice"></p>
+    : <br> 
+     <img id="dice1"/>
+     <img id="dice2"/>
+     <img id="dice3"/>
+    <br> 
     </label>
     <label>
     <button onclick="result()">
@@ -46,17 +50,24 @@
         // Send a request
         xhttp.open("GET", "dicegame");
         xhttp.send();
-        let dice = document.getElementById('throwdice');
         let results = document.getElementById('results');
-        dice.innerHTML = '';
         results.innerHTML = '';
+        let dice1 = document.getElementById('dice1');
+        let dice2 = document.getElementById('dice2');
+        let dice3 = document.getElementById('dice3');
+        dice1.src = "";
+        dice2.src = "";
+        dice3.src = "";
 
     }
     function throwdice(){
-        let dice = document.getElementById('throwdice');
+        let dice1 = document.getElementById('dice1');
+        let dice2 = document.getElementById('dice2');
+        let dice3 = document.getElementById('dice3');
         let die = gamedata['dice'];
-        dice.textContent = die[0] + ' ' + die[1] + ' ' + die[2];
-
+        dice1.src = "static/" + die[0] + ".png";
+        dice2.src = "static/" + die[1] + ".png";
+        dice3.src = "static/" + die[2] + ".png";
     }
     function result(){
         let results = document.getElementById('results');
